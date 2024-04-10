@@ -3,6 +3,7 @@ package pageObjects.nopCommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import commons.PageGeneratorNopCommerce;
 import pageUIs.nopCommerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
@@ -72,9 +73,10 @@ public class RegisterPageObject extends BasePage {
 		clickElement(driver, RegisterPageUI.REGISTER_BUTTON);
 	}
 
-	public void clickContinueButton() {
+	public HomePageObject clickContinueButton() {
 		waitForElementClickable(driver, RegisterPageUI.CONTINUE_BUTTON);
 		clickElement(driver, RegisterPageUI.CONTINUE_BUTTON);
+		return PageGeneratorNopCommerce.getHomePage(driver);
 	}
 
 	public String getRegisterSuccessMessage() {

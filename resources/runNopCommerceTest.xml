@@ -3,7 +3,7 @@
 
 	<test name="Test">
 		<classes>
-			<class name="afc.nopcommerce.user.FW_04_Page_Factory" />
+			<class name="afc.nopcommerce.user.FW_05_Page_Object_Generator" />
 		</classes>
 	</test>
 

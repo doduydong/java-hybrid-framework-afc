@@ -3,6 +3,7 @@ package pageObjects.nopCommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import commons.PageGeneratorNopCommerce;
 import pageUIs.nopCommerce.CustomerInfoPageUI;
 
 public class CustomerInfoPageObject extends BasePage {
@@ -17,9 +18,10 @@ public class CustomerInfoPageObject extends BasePage {
 		return isElementDisplayed(driver, CustomerInfoPageUI.LOGOUT_HEADER_LINK);
 	}
 
-	public void clickLogoutHeaderLink() {
+	public HomePageObject clickLogoutHeaderLink() {
 		waitForElementClickable(driver, CustomerInfoPageUI.LOGOUT_HEADER_LINK);
 		clickElement(driver, CustomerInfoPageUI.LOGOUT_HEADER_LINK);
+		return PageGeneratorNopCommerce.getHomePage(driver);
 	}
 
 	public String getFirstNameTextboxValue() {

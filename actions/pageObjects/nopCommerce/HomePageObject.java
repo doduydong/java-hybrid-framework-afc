@@ -3,6 +3,7 @@ package pageObjects.nopCommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import commons.PageGeneratorNopCommerce;
 import pageUIs.nopCommerce.HomePageUI;
 
 public class HomePageObject extends BasePage {
@@ -17,9 +18,10 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.REGISTER_HEADER_LINK);
 	}
 
-	public void clickRegisterHeaderLink() {
+	public RegisterPageObject clickRegisterHeaderLink() {
 		waitForElementClickable(driver, HomePageUI.REGISTER_HEADER_LINK);
 		clickElement(driver, HomePageUI.REGISTER_HEADER_LINK);
+		return PageGeneratorNopCommerce.getRegisterPage(driver);
 	}
 
 	public boolean isLoginHeaderLinkDisplayed() {
@@ -27,9 +29,10 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.LOGIN_HEADER_LINK);
 	}
 
-	public void clickLoginHeaderLink() {
+	public LoginPageObject clickLoginHeaderLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_HEADER_LINK);
 		clickElement(driver, HomePageUI.LOGIN_HEADER_LINK);
+		return PageGeneratorNopCommerce.getLoginPage(driver);
 	}
 
 	public boolean isMyAccountHeaderLinkDisplayed() {
@@ -37,9 +40,10 @@ public class HomePageObject extends BasePage {
 		return isElementDisplayed(driver, HomePageUI.MY_ACCOUNT_HEADER_LINK);
 	}
 
-	public void clickMyAccountHeaderLink() {
+	public CustomerInfoPageObject clickMyAccountHeaderLink() {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_HEADER_LINK);
 		clickElement(driver, HomePageUI.MY_ACCOUNT_HEADER_LINK);
+		return PageGeneratorNopCommerce.getCustomerInfoPage(driver);
 	}
 
 	public boolean isLogoutHeaderLinkDisplayed() {
