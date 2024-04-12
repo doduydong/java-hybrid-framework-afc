@@ -6,21 +6,7 @@
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_06_Cross_Browser_Testing" />
-		</classes>
-	</test>
-
-	<test name="ChromeTest">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="afc.nopcommerce.user.FW_06_Cross_Browser_Testing" />
-		</classes>
-	</test>
-
-	<test name="EdgeTest">
-		<parameter name="browser" value="edge" />
-		<classes>
-			<class name="afc.nopcommerce.user.FW_06_Cross_Browser_Testing" />
+			<class name="afc.nopcommerce.user.FW_07_Pattern_Objects" />
 		</classes>
 	</test>
 

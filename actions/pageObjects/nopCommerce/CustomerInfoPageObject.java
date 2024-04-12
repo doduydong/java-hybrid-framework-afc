@@ -2,14 +2,15 @@ package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
 import commons.PageGeneratorNopCommerce;
+import commons.PatternObjectsNopCommerce;
 import pageUIs.nopCommerce.CustomerInfoPageUI;
 
-public class CustomerInfoPageObject extends BasePage {
+public class CustomerInfoPageObject extends PatternObjectsNopCommerce {
 	private WebDriver driver;
 
 	public CustomerInfoPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
