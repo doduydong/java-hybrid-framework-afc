@@ -55,6 +55,6 @@ public class BasePageFactory {
 		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	private long longTimeout = 30;
+	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 
 }
