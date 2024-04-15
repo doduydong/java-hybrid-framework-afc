@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="jQuery">
+
+	<test name="FirefoxTest">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="afc.jquery.user.FW_08_CRUD_Data_Grid" />
+			<class name="afc.jquery.user.FW_08_Dynamic_Data_Grid" />
+		</classes>
+	</test>
+
+</suite>
