@@ -452,6 +452,14 @@ public class BasePage {
 		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.elementToBeClickable(getByXPath(getDynamicXPath(xpathLocator, dynamicValues))));
 	}
 
+	// File upload method
+	protected void uploadFile(WebDriver driver, String... fileNames) {
+		String fileUploadFolderPath = GlobalConstants.FILE_UPLOAD_FOLDER_PATH;
+		for (String fileName : fileNames) {
+			getWebElement(driver, "//input[@type='file']").sendKeys(fileUploadFolderPath + fileName);
+		}
+	}
+
 	protected void sleepInSecond(long time) {
 		try {
 			Thread.sleep(time * 1000);
