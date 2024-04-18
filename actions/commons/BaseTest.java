@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -32,6 +34,42 @@ public class BaseTest {
 
 	protected int getRandomNumber() {
 		return new Random().nextInt(99999);
+	}
+
+	protected boolean verifyTrue(boolean condition) {
+		boolean verifyResult = true;
+		try {
+			Assert.assertTrue(condition);
+		} catch (Throwable e) {
+			verifyResult = false;
+			TestFailuresManager.getTestFailures().addFailedResults(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return verifyResult;
+	}
+
+	protected boolean verifyFalse(boolean condition) {
+		boolean verifyResult = true;
+		try {
+			Assert.assertFalse(condition);
+		} catch (Throwable e) {
+			verifyResult = false;
+			TestFailuresManager.getTestFailures().addFailedResults(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return verifyResult;
+	}
+
+	protected boolean verifyEquals(Object actual, Object expected) {
+		boolean verifyResult = true;
+		try {
+			Assert.assertEquals(actual, expected);
+		} catch (Throwable e) {
+			verifyResult = false;
+			TestFailuresManager.getTestFailures().addFailedResults(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return verifyResult;
 	}
 
 }
