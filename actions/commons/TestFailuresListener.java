@@ -2,8 +2,8 @@ package commons;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
@@ -11,7 +11,7 @@ import org.testng.Reporter;
 import org.testng.internal.Utils;
 
 public class TestFailuresListener implements IInvokedMethodListener {
-	private static final Log log = LogFactory.getLog(TestFailuresListener.class);
+	private static final Logger log = LogManager.getLogger(TestFailuresListener.class);
 
 	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {

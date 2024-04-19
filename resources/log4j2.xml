@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" packages="commons">
+
+	<Properties>
+		<Property name="dateTimePattern">$${date:dd-MM-YYYY HH-mm-ss}</Property>
+		<Property name="logPattern">[%d{dd-MM-YYYY - HH:mm:ss} - %level %logger{36}] - %msg%n</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${logPattern}" />
+		</Console>
+
+		<File name="AllLogs" fileName="log4j2-output/allLogs.log" append="true">
+			<PatternLayout pattern="${logPattern}" />
+		</File>
+
+		<File name="LatestLogs" fileName="log4j2-output\latestLogs.${dateTimePattern}.log" append="true">
+			<PatternLayout pattern="${logPattern}" />
+		</File>
+
+		<TestNGAppender name="TestNGAppender">
+			<PatternLayout pattern="${logPattern}" />
+		</TestNGAppender>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="AllLogs" />
+			<AppenderRef ref="LatestLogs" />
+			<AppenderRef ref="TestNGAppender" />
+		</Root>
+	</Loggers>
+
+</Configuration>

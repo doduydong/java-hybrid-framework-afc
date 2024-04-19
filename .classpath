@@ -33,9 +33,16 @@
 	<classpathentry kind="lib" path="libWebDriverManager/jackson-annotations-2.10.3.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jackson-core-2.10.3.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jackson-databind-2.10.3.jar"/>
-	<classpathentry kind="lib" path="libWebDriverManager/jcl-over-slf4j-1.7.30.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jna-5.13.0.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/slf4j-api-2.0.12.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/webdrivermanager-5.8.0.jar"/>
+	<classpathentry kind="lib" path="libLog4j/log4j-api-2.23.1.jar"/>
+	<classpathentry kind="lib" path="libLog4j/log4j-core-2.23.1.jar"/>
+	<classpathentry kind="lib" path="libReportNG/guice-7.0.0.jar"/>
+	<classpathentry kind="lib" path="libReportNG/jcommander-1.82.jar"/>
+	<classpathentry kind="lib" path="libReportNG/jquery-3.7.1.jar"/>
+	<classpathentry kind="lib" path="libReportNG/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="libReportNG/velocity-1.4.jar"/>
+	<classpathentry kind="lib" path="libReportNG/velocity-dep-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -2,7 +2,9 @@
 <suite name="nopCommerce">
 
 	<listeners>
-		<listener class-name="commons.TestFailuresListener" />
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="reportConfig.ReportNGListener" />
 	</listeners>
 
 	<parameter name="url" value="https://demo.nopcommerce.com/" />
@@ -10,7 +12,7 @@
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_10_Assert_Verify" />
+			<class name="afc.nopcommerce.user.FW_11_Log4j2_ReportNG" />
 		</classes>
 	</test>
 
