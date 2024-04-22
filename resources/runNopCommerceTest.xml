@@ -2,9 +2,7 @@
 <suite name="nopCommerce">
 
 	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-		<listener class-name="reportConfig.ReportNGListener" />
+		<listener class-name="reportConfig.ExtentReportsListener" />
 	</listeners>
 
 	<parameter name="url" value="https://demo.nopcommerce.com/" />
@@ -12,7 +10,7 @@
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_11_Log4j2_ReportNG" />
+			<class name="afc.nopcommerce.user.FW_12_ExtentReports" />
 		</classes>
 	</test>
 
