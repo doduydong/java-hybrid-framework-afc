@@ -16,6 +16,7 @@ public class GlobalConstants {
 	public static final String FILE_UPLOAD_URL = "https://blueimp.github.io/jQuery-File-Upload/";
 
 	public static final long LONG_TIMEOUT = 30;
+	public static final long SHORT_TIMEOUT = 5;
 	public static final long ONE_SEC = 1;
 
 }
