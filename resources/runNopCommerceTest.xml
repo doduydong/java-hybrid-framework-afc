@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="nopCommerce">
 
-	<listeners>
-		<listener class-name="reportConfig.ExtentReportsListener" />
-	</listeners>
-
 	<parameter name="url" value="https://demo.nopcommerce.com/" />
 
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_12_ExtentReports" />
+			<class name="afc.nopcommerce.common.FW_13_User_Register_Login_Cookies" />
+			<class name="afc.nopcommerce.user.FW_13_Handle_Cookies" />
 		</classes>
 	</test>
 

@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -106,6 +107,16 @@ public class BasePage {
 			}
 		}
 		driver.switchTo().window(windowID);
+	}
+
+	protected Set<Cookie> getCookies(WebDriver driver) {
+		return driver.manage().getCookies();
+	}
+
+	protected void addCookies(WebDriver driver, Set<Cookie> cookies) {
+		for (Cookie cookie : cookies) {
+			driver.manage().addCookie(cookie);
+		}
 	}
 
 	// WebElement commands

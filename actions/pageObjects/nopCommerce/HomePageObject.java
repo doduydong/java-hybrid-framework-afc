@@ -1,5 +1,8 @@
 package pageObjects.nopCommerce;
 
+import java.util.Set;
+
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 import commons.PageGeneratorNopCommerce;
@@ -50,6 +53,10 @@ public class HomePageObject extends PatternObjectsNopCommerce {
 	public boolean isLogoutHeaderLinkDisplayed() {
 		waitForElementVisible(driver, HomePageUI.LOGOUT_HEADER_LINK);
 		return isElementDisplayed(driver, HomePageUI.LOGOUT_HEADER_LINK);
+	}
+
+	public Set<Cookie> getLoggedInCookies() {
+		return getCookies(driver);
 	}
 
 }
