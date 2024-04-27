@@ -1,5 +1,6 @@
 package commons;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -80,6 +81,50 @@ public class BaseTest {
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
 		return verifyResult;
+	}
+
+	protected void closeWebDriver() {
+		if (driver != null) {
+			try {
+				driver.manage().deleteAllCookies();
+				driver.quit();
+			} catch (Exception e) {
+				log.error("Error while quitting WebDriver: " + e.getMessage());
+			} finally {
+				String osName = GlobalConstants.OS_NAME.toLowerCase();
+				String browserInfo = driver.toString().toLowerCase();
+				String browserDriver = null;
+				String cmd = null;
+
+				try {
+					log.info("OS name: " + osName);
+					log.info("Browser info: " + browserInfo);
+
+					if (browserInfo.contains("firefox")) {
+						browserDriver = "geckodriver";
+					} else if (browserInfo.contains("chrome")) {
+						browserDriver = "chromedriver";
+					} else if (browserInfo.contains("edge")) {
+						browserDriver = "msedgedriver";
+					} else {
+						browserDriver = "safaridriver";
+					}
+
+					log.info("Browser driver: " + browserDriver);
+
+					if (osName.contains("window")) {
+						cmd = "taskkill /F /FI \"IMAGENAME eq " + browserDriver + "*\"";
+					} else {
+						cmd = "pkill " + browserDriver;
+					}
+
+					Process process = Runtime.getRuntime().exec(cmd);
+					process.waitFor();
+				} catch (IOException | InterruptedException e) {
+					log.error("Error while closing browser process: " + e.getMessage());
+				}
+			}
+		}
 	}
 
 }

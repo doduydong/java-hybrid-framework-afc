@@ -6,8 +6,21 @@
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.common.FW_13_User_Register_Login_Cookies" />
-			<class name="afc.nopcommerce.user.FW_13_Handle_Cookies" />
+			<class name="afc.nopcommerce.user.FW_14_Manage_Close_WebDriver" />
+		</classes>
+	</test>
+
+	<test name="ChromeTest">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="afc.nopcommerce.user.FW_14_Manage_Close_WebDriver" />
+		</classes>
+	</test>
+
+	<test name="EdgeTest">
+		<parameter name="browser" value="edge" />
+		<classes>
+			<class name="afc.nopcommerce.user.FW_14_Manage_Close_WebDriver" />
 		</classes>
 	</test>
 
