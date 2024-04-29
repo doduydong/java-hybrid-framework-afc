@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Sauce Labs">
+
+	<parameter name="url" value="https://www.saucedemo.com/" />
+
+	<test name="FirefoxTest">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="afc.saucelabs.user.FW_15_Data_Sorting" />
+		</classes>
+	</test>
+
+</suite>
