@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="nopCommerce">
 
+	<listeners>
+		<listener class-name="reportConfig.ExtentReportsListener" />
+	</listeners>
+
 	<parameter name="url" value="https://demo.nopcommerce.com/" />
 
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_14_Manage_Close_WebDriver" />
-		</classes>
-	</test>
-
-	<test name="ChromeTest">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="afc.nopcommerce.user.FW_14_Manage_Close_WebDriver" />
-		</classes>
-	</test>
-
-	<test name="EdgeTest">
-		<parameter name="browser" value="edge" />
-		<classes>
-			<class name="afc.nopcommerce.user.FW_14_Manage_Close_WebDriver" />
+			<class name="afc.nopcommerce.user.FW_15_Manage_Test_Data" />
 		</classes>
 	</test>
 
