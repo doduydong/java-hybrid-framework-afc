@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.DataFaker;
 
 public class BaseTest {
 	private WebDriver driver;
@@ -125,6 +126,11 @@ public class BaseTest {
 				}
 			}
 		}
+	}
+
+	public DataFaker getDataFakerFrom(String locale) {
+		log.info("Locale: " + locale);
+		return new DataFaker(locale);
 	}
 
 }
