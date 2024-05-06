@@ -10,7 +10,7 @@
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_16_Java_Faker" />
+			<class name="afc.nopcommerce.user.FW_17_Data_JSON_File" />
 		</classes>
 	</test>
 
