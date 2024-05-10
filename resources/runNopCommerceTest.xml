@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="nopCommerce">
 
-	<listeners>
-		<listener class-name="reportConfig.ExtentReportsListener" />
-	</listeners>
-
-	<parameter name="url" value="https://demo.nopcommerce.com/" />
+	<parameter name="server" value="demo" />
+	<parameter name="role" value="user" />
 
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_17_Data_JSON_File" />
+			<class name="afc.nopcommerce.user.FW_18_Multiple_Environments" />
 		</classes>
 	</test>
 

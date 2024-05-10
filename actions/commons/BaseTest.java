@@ -1,6 +1,8 @@
 package commons;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -10,6 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import commons.GlobalConstants.BrowsersList;
+import commons.GlobalConstants.RolesList;
+import commons.GlobalConstants.ServersList;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.DataFaker;
 
@@ -22,14 +27,15 @@ public class BaseTest {
 	}
 
 	protected WebDriver createWebDriverAndNavigate(String browserName, String pageUrl) {
-		switch (browserName) {
-		case "firefox":
+		BrowsersList browser = BrowsersList.valueOf(browserName.toUpperCase());
+		switch (browser) {
+		case FIREFOX:
 			driver = WebDriverManager.firefoxdriver().create();
 			break;
-		case "chrome":
+		case CHROME:
 			driver = WebDriverManager.chromedriver().create();
 			break;
-		case "edge":
+		case EDGE:
 			driver = WebDriverManager.edgedriver().create();
 			break;
 		default:
@@ -39,6 +45,70 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		driver.get(pageUrl);
 		return driver;
+	}
+
+	protected WebDriver createWebDriverAndNavigateByServerAndRole(String browserName, String serverName, String roleName) {
+		BrowsersList browser = BrowsersList.valueOf(browserName.toUpperCase());
+		switch (browser) {
+		case FIREFOX:
+			driver = WebDriverManager.firefoxdriver().create();
+			break;
+		case CHROME:
+			driver = WebDriverManager.chromedriver().create();
+			break;
+		case EDGE:
+			driver = WebDriverManager.edgedriver().create();
+			break;
+		default:
+			throw new RuntimeException("'" + browserName.toUpperCase() + "' Browser is invalid.");
+		}
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(getUrlByServer(serverName, roleName));
+		return driver;
+	}
+
+	private String getUrlByServer(String serverName, String roleName) {
+		ServersList server = ServersList.valueOf(serverName.toUpperCase());
+		RolesList role = RolesList.valueOf(roleName.toUpperCase());
+
+		Map<RolesList, Map<ServersList, String>> urls = new HashMap<>();
+
+		Map<ServersList, String> userUrls = new HashMap<>();
+		userUrls.put(ServersList.DEV, GlobalConstants.DEV_USER_NOPCOMMERCE_URL);
+		userUrls.put(ServersList.TEST, GlobalConstants.TEST_USER_NOPCOMMERCE_URL);
+		userUrls.put(ServersList.STAGING, GlobalConstants.STAGING_USER_NOPCOMMERCE_URL);
+		userUrls.put(ServersList.DEMO, GlobalConstants.DEMO_USER_NOPCOMMERCE_URL);
+		userUrls.put(ServersList.PROD, GlobalConstants.PROD_USER_NOPCOMMERCE_URL);
+		urls.put(RolesList.USER, userUrls);
+
+		Map<ServersList, String> adminUrls = new HashMap<>();
+		adminUrls.put(ServersList.DEV, GlobalConstants.DEV_ADMIN_NOPCOMMERCE_URL);
+		adminUrls.put(ServersList.TEST, GlobalConstants.TEST_ADMIN_NOPCOMMERCE_URL);
+		adminUrls.put(ServersList.STAGING, GlobalConstants.STAGING_ADMIN_NOPCOMMERCE_URL);
+		adminUrls.put(ServersList.DEMO, GlobalConstants.DEMO_ADMIN_NOPCOMMERCE_URL);
+		adminUrls.put(ServersList.PROD, GlobalConstants.PROD_ADMIN_NOPCOMMERCE_URL);
+		urls.put(RolesList.ADMIN, adminUrls);
+
+		if (!urls.containsKey(role)) {
+			throw new RuntimeException("Invalid role: '" + roleName.toUpperCase() + "'");
+		}
+
+		log.info("Role: " + roleName);
+
+		Map<ServersList, String> roleUrls = urls.get(role);
+
+		if (!roleUrls.containsKey(server)) {
+			throw new RuntimeException("Invalid server: '" + serverName.toUpperCase() + "'");
+		}
+
+		log.info("Server: " + serverName);
+
+		String url = roleUrls.get(server);
+
+		log.info("URL: " + url);
+
+		return url;
 	}
 
 	protected int getRandomNumber() {
