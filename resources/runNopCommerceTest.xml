@@ -2,12 +2,11 @@
 <suite name="nopCommerce">
 
 	<parameter name="server" value="demo" />
-	<parameter name="role" value="user" />
 
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_18_Multiple_Environments" />
+			<class name="afc.nopcommerce.user.FW_19_Java_Owner" />
 		</classes>
 	</test>
 
