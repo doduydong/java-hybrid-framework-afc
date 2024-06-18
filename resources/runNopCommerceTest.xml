@@ -3,10 +3,15 @@
 
 	<parameter name="server" value="demo" />
 
+	<listeners>
+		<listener class-name="reportConfig.ExtentReportsListener" />
+	</listeners>
+
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="afc.nopcommerce.user.FW_19_Java_Owner" />
+			<class name="afc.nopcommerce.user.FW_12_ExtentReports" />
+			<class name="afc.nopcommerce.user.FW_15_Manage_Test_Data" />
 		</classes>
 	</test>
 
